@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var engine = require('ejs-mate');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -8,6 +9,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+// use ejs-locals for all ejs templates:
+app.engine('ejs', engine);
 
 // security
 var helmet = require('helmet')
